@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PropertyList.styles.css'; 
+import PropertyTile from './PropertyTile';
 
 
 
@@ -31,7 +32,7 @@ function PropertyList(): JSX.Element {
                 return;
             }
     
-            const response = await axios.get<any>(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`, {
+            const response = await axios.get<any>(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=10`, {
                 headers: {
                     'X-RapidAPI-Key': apiKey,
                     'X-RapidAPI-Host': host
@@ -48,17 +49,23 @@ function PropertyList(): JSX.Element {
     };
 
   return (
-    <div>
-      <h1>Property List</h1>
-      <ul>
+    <div className = 'property-list'>
+      <h1 className = 'property-list-title'>Rentals</h1>
+      <div className="property-grid">
         {properties.map((property) => (
-          <li key={property.id}>
-            <h2>{property.title}</h2>
-            <p>Price: {property.price}</p>
-            <img className='photo' src={property.coverPhoto.url}></img>
-          </li>
+          // <li key={property.id}>
+          //   <h2>{property.title}</h2>
+          //   <p>Price: {property.price}</p>
+          //   <img className='photo' src={property.coverPhoto.url}></img>
+          // </li>
+          <PropertyTile
+            key={property.id}
+            title={property.title}
+            price={property.price}
+            image={property.coverPhoto.url}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

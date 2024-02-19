@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import PropertyList from './components/PropertyList';
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap"></link>
 
 
 const App: React.FC = () => {
   return (
   <div>
-    <h1>Real Estate</h1>
+    <h1 className='brandName'>HomeVibe</h1>
     <PropertyList />
   </div>
   );

@@ -1,7 +1,16 @@
-
-.photo {
-    
-    width: 400px; /* Adjust the width as needed */
-    height: 200px; 
-    margin: 0 auto; /* Center the image horizontally */
+.property-list {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+.property-list-title {
+  color: #C21292;
+  padding: 30px; 
 }
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+
