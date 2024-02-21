@@ -1,29 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import PropertyList from './components/PropertyList';
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap"></link>
+import ForRentList from './components/ForRentList';
+import ForSaleList from './components/ForSaleList';
+import HomePage from './components/HomePage';
+//<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap"></link>
 
 
 const App: React.FC = () => {
+  const [showRentalList, setShowRentalList] = useState(false);
+  const [showSaleList, setShowSaleList] = useState(false);
+
+  const handleRentClick = () => {
+    setShowRentalList(true);
+    setShowSaleList(false);
+  };
+
+  const handleSaleClick = () => {
+    setShowSaleList(true);
+    setShowRentalList(false);
+  };
+
   return (
-  <div>
-    <h1 className='brandName'>HomeVibe</h1>
-    <PropertyList />
-  </div>
+    <div className="app">
+      <HomePage onRentClick={handleRentClick} onSaleClick={handleSaleClick} />
+            {showRentalList && <ForRentList />}
+            {showSaleList && <ForSaleList />}
+    </div>
   );
 }
-
-
-// export async function getStaticProps() {
-//   //const propertyForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`);
-//   const propertyForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=6`);
-
-//   return {
-//     props: {
-//      // propertiesForSale: propertyForSale?.hits,
-//       propertiesForRent: propertyForRent?.hits,
-//     },
-//   };
-// }
 
 export default App;
