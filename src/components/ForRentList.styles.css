@@ -15,3 +15,36 @@
     grid-gap: 20px;
   }
 
+
+.property-pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.property-pagination button {
+  background-color: white;
+  color: #C21292;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 2px solid #FFA732;
+}
+
+.property-pagination button:hover {
+  background-color: #C21292;
+  color: white;
+  border: 2px solid #C21292;
+}
+
+.property-pagination button.selected {
+  background-color: #C21292;
+  color: white;
+  border: 2px solid #C21292;
+}
