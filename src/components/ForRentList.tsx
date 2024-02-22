@@ -14,6 +14,8 @@ function PropertyList(): JSX.Element {
         coverPhoto: {
             url: string;
         };
+        rooms: number;
+        baths: number; 
     }
 
     const [properties, setProperties] = useState<Property[]>([]);
@@ -71,6 +73,8 @@ function PropertyList(): JSX.Element {
             title={property.title}
             price={property.price}
             image={property.coverPhoto.url}
+            rooms={property.rooms}
+            baths={property.baths}
           />
         ))}
       </div>
