@@ -75,16 +75,7 @@ function PropertyList(): JSX.Element {
         ))}
       </div>
       )}
-      {/* <div className="property-grid">
-        {properties.map((property) => (
-          <PropertyTile
-            key={property.id}
-            title={property.title}
-            price={property.price}
-            image={property.coverPhoto.url}
-          />
-        ))}
-      </div> */}
+     
       <div className="property-pagination">
         {Array.from({ length:6 }, (_, index) => (
           <button 

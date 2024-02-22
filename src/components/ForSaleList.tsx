@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ForSaleList.styles.css'; 
 import PropertyTile from './PropertyTile';
+import Spinner from '../helpers/Spinner';
 
 
 
@@ -17,12 +18,15 @@ function PropertyList(): JSX.Element {
 
   const [properties, setProperties] = useState<Property[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false); 
+
 
   useEffect(() => {
       fetchProperties();
   }, [currentPage]);
 
   const fetchProperties = async (): Promise<void> => {
+      setLoading(true);
       try {
           const baseUrl = process.env.REACT_APP_BASE_URL;
           const apiKey = process.env.REACT_APP_API_KEY;
@@ -43,10 +47,9 @@ function PropertyList(): JSX.Element {
           setProperties(response.data.hits); // Set properties to the hits property of the response data
       } catch (error) {
           console.error('Error fetching properties:', error);
+      }finally {
+        setLoading(false); // Set loading to false after receiving the response
       }
-      //console.log(properties);
-      const coverPhotos = properties.map(property => property.coverPhoto.url);
-      console.log(coverPhotos);
   };
 
   const handlePageChange = (page: number) => {
@@ -56,7 +59,9 @@ function PropertyList(): JSX.Element {
   return (
     <div className = 'property-list'>
       <h1 className = 'property-list-title'>For Sale</h1>
-      <div className="property-grid">
+
+      {loading? (<Spinner/>) : (
+        <div className="property-grid">
         {properties.map((property) => (
           <PropertyTile
             key={property.id}
@@ -66,6 +71,8 @@ function PropertyList(): JSX.Element {
           />
         ))}
       </div>
+      )}
+
       <div className="property-pagination">
         {Array.from({ length:6 }, (_, index) => (
           <button 
