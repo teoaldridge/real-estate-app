@@ -10,6 +10,7 @@ function PropertyList(): JSX.Element {
   const {data, isPending, isError, error} = useQuery({
     queryKey: ['properties'],
     queryFn: () => fetchProperties(),
+    staleTime: 3024000000,
   });
 
   let content;
