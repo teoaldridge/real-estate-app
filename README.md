@@ -1,3 +1,13 @@
+This is a Real Estate React app that I am building to learn and practice React skills. 
+
+# Use Bayut API
+
+This App is using the Bayut API https://rapidapi.com/apidojo/api/bayut
+In order to fetch the data from the API, you need to create an account with rapidapi, and sign up to use bayut. 
+You can choose the free option which limits you to 500 requests per month. 
+
+Add your API key to the .env file before starting the app. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
