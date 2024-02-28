@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchProperties = async () => {
+export const fetchForSaleProperties = async () => {
     interface Property {
         id: number;
         title: string;
@@ -23,7 +23,7 @@ export const fetchProperties = async () => {
               return;
           }
   
-          const response = await axios.get<any>(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=10`, {
+          const response = await axios.get<any>(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=10`, {
               headers: {
                   'X-RapidAPI-Key': apiKey,
                   'X-RapidAPI-Host': host

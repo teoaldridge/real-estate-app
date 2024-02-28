@@ -1,7 +1,7 @@
 import './ForRentList.styles.css'; 
 import PropertyTile from './PropertyTile';
 import Spinner from '../helpers/Spinner';
-import { fetchProperties } from '../utils/FetchProperties';
+import { fetchForRentProperties } from '../utils/FetchForRentProperties';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ function PropertyList(): JSX.Element {
 
   const {data, isPending, isError, error} = useQuery({
     queryKey: ['properties', currentPage],
-    queryFn: () => fetchProperties(),
+    queryFn: () => fetchForRentProperties(),
     staleTime: 3024000000,
     gcTime: 3024000000,
   },);
