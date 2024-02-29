@@ -10,17 +10,23 @@ import ForSaleFilterComponent from './ForSaleFilterComponent'
 
 function PropertyList(): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1);
+  const [filterValues, setFilterValues] = useState({}); 
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  const {data, isPending, isError, error} = useQuery({
-    queryKey: ['properties', currentPage],
-    queryFn: () => fetchForSaleProperties(),
+  const {data, isPending, isError, error, refetch } = useQuery({
+    queryKey: ['properties', currentPage, filterValues],
+    queryFn: () => fetchForSaleProperties(filterValues),
     staleTime: 3024000000,
     gcTime: 3024000000,
+    //enabled: false,
   },);
+
+  const applyFilters = () => {
+    refetch(); // Refetch data with updated filters
+  };
 
   let content;
 
@@ -55,7 +61,8 @@ function PropertyList(): JSX.Element {
   return (
     <div className = 'property-list'>
       <h1 className = 'property-list-title'>For Sale</h1>
-      <ForSaleFilterComponent/>
+      <ForSaleFilterComponent setFilterValues={setFilterValues}/>
+      <button onClick={applyFilters}>Apply Filters</button>
       {content}
       <div className="property-pagination">
         {Array.from({ length:6 }, (_, index) => (

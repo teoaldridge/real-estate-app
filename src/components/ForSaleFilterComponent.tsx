@@ -2,20 +2,35 @@ import {filterData, getFilterValues} from '../utils/filterData'
 import { useState } from 'react';
 import './ForSaleFilterComponent.styles.css'
 
-const ForSaleFilterComponent: React.FC = () => {
-    const [filters, setFilters] = useState(filterData);
+type QueryObject = {
+    [key:string]:string
+}
 
-    const searchProperties = (filterValues:any) => {
+const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
+    setFilterValues
+}) => {
+    const filters = filterData;
+    const [selectedFilters, setSelectedFilters] = useState<QueryObject>({});
+
+    const handleFilterChange = (queryName: string, value: string) => {
+        if(value===""){
+            const selectedFilterCopy :QueryObject={};
+            for (const key in selectedFilters) {
+                if(key!==queryName){
+                    selectedFilterCopy[key] = selectedFilters[key];
+                }
+            }
+            setSelectedFilters(selectedFilterCopy);
+        } else{
+            setSelectedFilters({ ...selectedFilters, [queryName]: value });
+        }
         
-    }
-
-    const logFilters = () => {
-        filters.map((filter) => (
-            console.log(filter.queryName)
-        ))
-    }
-
-    logFilters()
+      };
+    
+      const handleApplyFilters = () => {
+        //const filterValues = getFilterValues(filters);
+        setFilterValues(selectedFilters);
+      };
 
     return(
         <div className="for-sale-filter-container">
@@ -25,14 +40,16 @@ const ForSaleFilterComponent: React.FC = () => {
                     <label htmlFor={filter.queryName}>{filter.placeholder}</label>
                     <select
                         name={filter.placeholder}
-                        onChange={(e) => searchProperties({[filter.queryName]: e.target.value})}
+                        onChange={(e) => handleFilterChange(filter.queryName, e.target.value)}
                     >
+                        <option value=""></option>
                         {filter?.items?.map((item) => (
                             <option value={item.value} key={item.value}>{item.name}</option>
                         ))}
                     </select>
                 </div>
             ))}
+             <button onClick={handleApplyFilters}>Apply Filters</button>
         </div>
     )
 }
