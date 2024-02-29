@@ -1,0 +1,59 @@
+/* ForSaleFilterComponent.css */
+
+/* Container styling */
+.for-sale-filter-container {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Filter select styling */
+  .for-sale-filter-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Apply some margin between filters */
+  .for-sale-filter-container select:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  
+  /* Add hover effect */
+  .for-sale-filter-container select:hover {
+    border-color: #999;
+  }
+  
+  /* Add focus effect */
+  .for-sale-filter-container select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Apply custom styling for dropdown arrow */
+  .for-sale-filter-container select::-ms-expand {
+    display: none;
+  }
+  
+  .for-sale-filter-container select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 18px;
+  }
+  
+  /* Add some styling for the label */
+  .filter-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  

@@ -4,6 +4,7 @@ import Spinner from '../helpers/Spinner';
 import { fetchForSaleProperties } from '../utils/FetchForSaleProperties';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import ForSaleFilterComponent from './ForSaleFilterComponent'
 
 
 
@@ -54,6 +55,7 @@ function PropertyList(): JSX.Element {
   return (
     <div className = 'property-list'>
       <h1 className = 'property-list-title'>For Sale</h1>
+      <ForSaleFilterComponent/>
       {content}
       <div className="property-pagination">
         {Array.from({ length:6 }, (_, index) => (
