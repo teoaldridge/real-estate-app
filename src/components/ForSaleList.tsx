@@ -61,8 +61,7 @@ function PropertyList(): JSX.Element {
   return (
     <div className = 'property-list'>
       <h1 className = 'property-list-title'>For Sale</h1>
-      <ForSaleFilterComponent setFilterValues={setFilterValues}/>
-      <button onClick={applyFilters}>Apply Filters</button>
+      <ForSaleFilterComponent setFilterValues={setFilterValues}/> 
       {content}
       <div className="property-pagination">
         {Array.from({ length:6 }, (_, index) => (

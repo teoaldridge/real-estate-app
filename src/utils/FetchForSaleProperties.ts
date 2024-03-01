@@ -25,19 +25,6 @@ interface Filters {
     furnishingStatus?: string;
     categoryExternalID?: string; //property type
 }
-
-// interface Filters {
-//     rentFrequency?: string;
-//     minPrice?: string;
-//     maxPrice?: string;
-//     sort?: string;
-//     minArea?: number;
-//     maxArea?: number;
-//     rooms?: number;
-//     baths?: number;
-//     furnishType?: string;
-//     propertyType?: string;
-// }
 export const fetchForSaleProperties = async (filters?: Filters): Promise<Property[]> => {
 
       try {
@@ -50,7 +37,8 @@ export const fetchForSaleProperties = async (filters?: Filters): Promise<Propert
               return[];
           }
 
-          let apiUrl = `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=5`
+          let apiUrl = `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=10`
+          //let apiUrl = 'localhost:3000../../public/forSaleDummyData'
   
           if(filters) {
             Object.entries(filters).forEach(([key, value]) => {

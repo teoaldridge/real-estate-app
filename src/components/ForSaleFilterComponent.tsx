@@ -34,11 +34,10 @@ const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
 
     return(
         <div className="for-sale-filter-container">
-            <div className="filter-label">Filters:</div>
             {filters.map((filter) => (
                 <div key={filter.queryName}>
                     <label htmlFor={filter.queryName}>{filter.placeholder}</label>
-                    <select
+                    <select 
                         name={filter.placeholder}
                         onChange={(e) => handleFilterChange(filter.queryName, e.target.value)}
                     >
