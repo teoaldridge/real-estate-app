@@ -1,4 +1,4 @@
-import {filterData, getFilterValues} from '../utils/filterData'
+import { filterData } from '../utils/filterData'
 import { useState } from 'react';
 import './ForSaleFilterComponent.styles.css'
 
