@@ -1,4 +1,12 @@
 This is a Real Estate React app that I am building to learn and practice React skills. 
+Stack used in the app so far: 
+ - TypeScript
+ - React
+ - React Query
+ - Axios
+
+<img width="860" alt="image" src="https://github.com/teoaldridge/real-estate-app/assets/74827533/543a7ab9-bee8-498a-8b7a-8b2444c76c17">
+
 
 # Use Bayut API
 
