@@ -1,4 +1,4 @@
-export const filterData = [
+export const forRentFilterData = [
     {
         items: [
           { name: 'Apartment', value: '4' },
@@ -14,6 +14,16 @@ export const filterData = [
         placeholder: 'Property Type',
         queryName: 'categoryExternalID',
     },
+    {
+      items: [
+        { name: 'monthly', value: 'monthly' },
+        { name: 'yearly', value: 'yearly' },
+        { name: 'weekly', value: 'weekly' },
+        { name: 'daily', value: 'daily' },
+      ],
+      placeholder: 'Rent Frequency',
+      queryName: 'rentFrequency',
+  },
     {
       items: [
         { name: '10,000', value: '10000' },

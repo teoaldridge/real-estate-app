@@ -13,17 +13,19 @@ interface Property {
 }
 
 interface Filters {
-    rentFrequency: string;
-    minPrice: string;
-    maxPrice: string;
-    sort: string;
-    minArea: number;
-    maxArea: number;
-    rooms: number;
-    baths: number;
-    furnishType: string;
-    propertyType: string;
-  }
+    purpose?: string;
+    rentFrequency?: string;
+    priceMin?: number;
+    priceMax?: number;
+    sort?: string;
+    areaMax?: number;
+    roomsMin?: number;
+    roomsMax?: number;
+    bathsMin?: number;
+    bathsMax?: number;
+    furnishingStatus?: string;
+    categoryExternalID?: string; //property type
+}
 
 export const fetchForRentProperties = async (filters?: Filters):Promise<Property[]> => {
     

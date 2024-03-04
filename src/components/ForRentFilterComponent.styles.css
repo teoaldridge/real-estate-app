@@ -1,46 +1,60 @@
-.filter-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
+/* ForRentFilterComponent.css */
+
+/* Container styling */
+.for-rent-filter-container {
+  padding: 20px;
+  margin: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color:rgba(0, 0, 0, 0.1) ;
+}
+
+.for-rent-filter-container label {
+  color: #711DB0; 
+  padding: 5px;
+} 
   
-  .filter-container form {
-    display: flex;
-    flex-direction: column;
-  }
+  /* Filter select styling */
+.for-rent-filter-container > div {
+  margin-right: 20px; 
+  margin-bottom: 20px; 
+}
+
+
+.for-rent-filter-container select {
+  width: calc(100% - 10px); /* Adjust width to account for padding */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+/* Button styling */
+.for-rent-filter-container button { 
+  background-color:#C21292;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 16.5px;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition-duration: 0.4s;
+}
   
-  .filter-container label {
-    margin-bottom: 10px;
-  }
-  
-  .filter-container label select,
-  .filter-container label input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-  }
-  
-  .filter-container label select {
-    cursor: pointer;
-  }
-  
-  .filter-container button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .filter-container button:hover {
-    background-color: #0056b3;
-  }
-  
+.for-rent-filter-container button:hover {
+  background-color: #FFA732;
+  color: black;
+}
+
+
+

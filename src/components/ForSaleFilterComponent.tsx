@@ -1,4 +1,4 @@
-import { filterData } from '../utils/filterData'
+import { forSaleFilterData } from '../utils/forSaleFilterData'
 import { useState } from 'react';
 import './ForSaleFilterComponent.styles.css'
 
@@ -9,7 +9,7 @@ type QueryObject = {
 const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
     setFilterValues
 }) => {
-    const filters = filterData;
+    const filters = forSaleFilterData;
     const [selectedFilters, setSelectedFilters] = useState<QueryObject>({});
 
     const handleFilterChange = (queryName: string, value: string) => {
@@ -28,7 +28,6 @@ const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
       };
     
       const handleApplyFilters = () => {
-        //const filterValues = getFilterValues(filters);
         setFilterValues(selectedFilters);
       };
 

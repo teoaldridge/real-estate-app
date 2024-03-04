@@ -10,21 +10,15 @@ import ForRentFilterComponent from './ForRentFilterComponent';
 
 function PropertyList(): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1);
-  const [filters, setFilters] = useState<any>({});
+  const [filterValues, setFilterValues] = useState({});
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  const applyFilters = (newFilters: any) => {
-    // Call an API or apply filtering logic based on the filters and set the filtered data
-    setFilters(newFilters);
-    // Example: fetchFilteredData(filters).then(data => setFilteredData(data));
-  };
-
   const {data, isPending, isError, error} = useQuery({
-    queryKey: ['properties', currentPage, filters],
-    queryFn: () => fetchForRentProperties(filters),
+    queryKey: ['properties', currentPage, filterValues],
+    queryFn: () => fetchForRentProperties(filterValues),
     staleTime: 3024000000,
     gcTime: 3024000000,
   },);
@@ -62,7 +56,7 @@ function PropertyList(): JSX.Element {
   return (
     <div className = 'property-list'>
       <h1 className = 'property-list-title'>For Rent</h1>
-      <ForRentFilterComponent applyFilters={applyFilters} />
+      <ForRentFilterComponent setFilterValues={setFilterValues} />
       {content}
       <div className="property-pagination">
         {Array.from({ length:6 }, (_, index) => (

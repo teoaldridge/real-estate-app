@@ -16,17 +16,12 @@ function PropertyList(): JSX.Element {
     setCurrentPage(page);
   };
 
-  const {data, isPending, isError, error, refetch } = useQuery({
+  const {data, isPending, isError, error } = useQuery({
     queryKey: ['properties', currentPage, filterValues],
     queryFn: () => fetchForSaleProperties(filterValues),
     staleTime: 3024000000,
     gcTime: 3024000000,
-    //enabled: false,
   },);
-
-  const applyFilters = () => {
-    refetch(); // Refetch data with updated filters
-  };
 
   let content;
 

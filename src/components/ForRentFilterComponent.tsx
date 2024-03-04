@@ -1,79 +1,55 @@
 import React, { useState } from 'react';
+import { forRentFilterData } from '../utils/forRentFilterData'
 import './ForRentFilterComponent.styles.css'
 
-interface Filters {
-  rentFrequency: string;
-  minPrice: number;
-  maxPrice: number;
-  sort: string;
-  minArea: number;
-  maxArea: number;
-  rooms: number;
-  baths: number;
-  furnishType: string;
-  propertyType: string;
+type QueryObject = {
+  [key:string]:string
 }
 
-interface FilterProps {
-  applyFilters: (filters: Filters) => void;
-}
+const ForRentFilterComponent: React.FC<{setFilterValues: Function}> = ({ 
+  setFilterValues 
+}) => {
+  const filters = forRentFilterData;
 
-const FilterComponent: React.FC<FilterProps> = ({ applyFilters }) => {
-  const [filters, setFilters] = useState<Filters>({
-    rentFrequency: '',
-    minPrice: 0,
-    maxPrice: 0,
-    sort: '',
-    minArea: 0,
-    maxArea: 0,
-    rooms: 0,
-    baths: 0,
-    furnishType: '',
-    propertyType: ''
-  });
+  const [selectedFilters, setSelectedFilters] = useState<QueryObject>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFilters(prevFilters => ({
-      ...prevFilters,
-      [name]: value
-    }));
-    console.log(filters); 
-  };
+  const handleFilterChange = (queryName: string, value: string) => {
+    if(value === ""){
+      const selectedFilterCopy: QueryObject = {};
+      for( const key in selectedFilters) {
+        if (key !== queryName) {
+          selectedFilterCopy[key] = selectedFilters[key];
+        }
+      }
+      setSelectedFilters(selectedFilterCopy);
+    } else {
+      setSelectedFilters({ ...selectedFilters, [queryName]: value})
+    }
+  }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    applyFilters(filters);
+  const handleApplyFilters = () => {
+    setFilterValues(selectedFilters);
   };
 
   return (
-    <div className="filter-container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Rent Frequency:
-          <select name="rentFrequency" value={filters.rentFrequency} onChange={handleChange}>
-            <option value="">Select</option>
-            <option value="monthly">Monthly</option>
-            <option value="weekly">Weekly</option>
-          </select>
-        </label>
-
-        <label>
-          Min Price:
-          <input type="text" name="minPrice" value={filters.minPrice} onChange={handleChange} />
-        </label>
-
-        <label>
-          Max Price:
-          <input type="text" name="maxPrice" value={filters.maxPrice} onChange={handleChange} />
-        </label>
-
-        {/* Add other filters similarly */}
-
-        <button type="submit">Apply Filters</button>
-      </form>
-    </div>
+    <div className="for-rent-filter-container">
+    {filters.map((filter) => (
+        <div key={filter.queryName}>
+            <label htmlFor={filter.queryName}>{filter.placeholder}</label>
+            <select 
+                name={filter.placeholder}
+                onChange={(e) => handleFilterChange(filter.queryName, e.target.value)}
+            >
+                <option value=""></option>
+                {filter?.items?.map((item) => (
+                    <option value={item.value} key={item.value}>{item.name}</option>
+                ))}
+            </select>
+        </div>
+    ))}
+     <button onClick={handleApplyFilters}>Apply Filters</button>
+</div>
   );
 };
 
-export default FilterComponent;
+export default ForRentFilterComponent;
