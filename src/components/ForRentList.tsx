@@ -1,4 +1,4 @@
-import './ForRentList.styles.css'; 
+import './ForRentList.css'; 
 import PropertyTile from './PropertyTile';
 import Spinner from '../helpers/Spinner';
 import { fetchForRentProperties } from '../utils/FetchForRentProperties';

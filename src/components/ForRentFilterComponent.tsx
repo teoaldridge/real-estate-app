@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { forRentFilterData } from '../utils/forRentFilterData'
-import './ForRentFilterComponent.styles.css'
+import './ForRentFilterComponent.css'
 
 type QueryObject = {
   [key:string]:string

@@ -1,4 +1,4 @@
-import './ForSaleList.styles.css'; 
+import './ForSaleList.css'; 
 import PropertyTile from './PropertyTile';
 import Spinner from '../helpers/Spinner';
 import { fetchForSaleProperties } from '../utils/FetchForSaleProperties';
