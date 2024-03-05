@@ -12,7 +12,7 @@ interface PropertyTileProps {
     area: number;
   }
 
-const PropertyTile: React.FC<PropertyTileProps> = ({ title, price, image, rooms, baths, area }) => {
+export const PropertyTile: React.FC<PropertyTileProps> = ({ title, price, image, rooms, baths, area }) => {
   const roundedArea = area.toFixed(1);
   
   return (
@@ -37,5 +37,3 @@ const PropertyTile: React.FC<PropertyTileProps> = ({ title, price, image, rooms,
     </div>
   );
 };
-
-export default PropertyTile;

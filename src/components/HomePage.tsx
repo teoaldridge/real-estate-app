@@ -6,7 +6,7 @@ interface HomePageProps {
   onSaleClick: () => void;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ onRentClick, onSaleClick }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onRentClick, onSaleClick }) => {
   return (
     <div className="home-page">
       <h1 className='brandName'>Home Vibe</h1>
@@ -21,5 +21,3 @@ const HomePage: React.FC<HomePageProps> = ({ onRentClick, onSaleClick }) => {
     </div>
   );
 }
-
-export default HomePage;

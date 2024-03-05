@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import ForRentList from './components/ForRentList';
-import ForSaleList from './components/ForSaleList';
-import HomePage from './components/HomePage';
+import { ForRentList } from './components/ForRentList';
+import { ForSaleList } from './components/ForSaleList';
+import { HomePage } from './components/HomePage';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 //<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap"></link>
 

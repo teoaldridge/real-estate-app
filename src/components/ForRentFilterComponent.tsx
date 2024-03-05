@@ -6,7 +6,7 @@ type QueryObject = {
   [key:string]:string
 }
 
-const ForRentFilterComponent: React.FC<{setFilterValues: Function}> = ({ 
+export const ForRentFilterComponent: React.FC<{setFilterValues: Function}> = ({ 
   setFilterValues 
 }) => {
   const filters = forRentFilterData;
@@ -51,5 +51,3 @@ const ForRentFilterComponent: React.FC<{setFilterValues: Function}> = ({
 </div>
   );
 };
-
-export default ForRentFilterComponent;

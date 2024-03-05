@@ -1,14 +1,14 @@
 import './ForSaleList.css'; 
-import PropertyTile from './PropertyTile';
-import Spinner from '../helpers/Spinner';
+import { PropertyTile } from './PropertyTile';
+import { Spinner } from '../helpers/Spinner';
 import { fetchForSaleProperties } from '../utils/FetchForSaleProperties';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import ForSaleFilterComponent from './ForSaleFilterComponent'
+import { ForSaleFilterComponent } from './ForSaleFilterComponent'
 
 
 
-function PropertyList(): JSX.Element {
+export const ForSaleList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filterValues, setFilterValues] = useState({}); 
 
@@ -72,5 +72,3 @@ function PropertyList(): JSX.Element {
     </div>
   );
 }
-
-export default PropertyList;

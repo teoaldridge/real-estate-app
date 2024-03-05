@@ -1,14 +1,14 @@
 import './ForRentList.css'; 
-import PropertyTile from './PropertyTile';
-import Spinner from '../helpers/Spinner';
+import { PropertyTile } from './PropertyTile';
+import { Spinner } from '../helpers/Spinner';
 import { fetchForRentProperties } from '../utils/FetchForRentProperties';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import ForRentFilterComponent from './ForRentFilterComponent';
+import { ForRentFilterComponent } from './ForRentFilterComponent';
 
 
 
-function PropertyList(): JSX.Element {
+ export const ForRentList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filterValues, setFilterValues] = useState({});
 
@@ -73,4 +73,3 @@ function PropertyList(): JSX.Element {
   );
 }
 
-export default PropertyList;

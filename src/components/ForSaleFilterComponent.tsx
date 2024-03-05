@@ -6,7 +6,7 @@ type QueryObject = {
     [key:string]:string
 }
 
-const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
+export const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
     setFilterValues
 }) => {
     const filters = forSaleFilterData;
@@ -51,5 +51,3 @@ const ForSaleFilterComponent: React.FC<{ setFilterValues: Function }>  = ({
         </div>
     )
 }
-
-export default ForSaleFilterComponent;
