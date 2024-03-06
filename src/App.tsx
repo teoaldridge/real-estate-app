@@ -1,36 +1,32 @@
-import React, { useState } from 'react';
-import './App.css';
-import { ForRentList } from './components/ForRentList';
-import { ForSaleList } from './components/ForSaleList';
-import { HomePage } from './components/HomePage';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
-//<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap"></link>
+import { RouterProvider, createBrowserRouter} from 'react-router-dom';
+import { HomePage } from './pages/HomePage'
+import { ForSaleListPage } from './pages/ForSaleListPage';
+import { ForRentListPage } from './pages/ForRentListPage';
+import { SalePropertyDetailsPage } from './pages/SalePropertyDetailsPage';
+import { RentPropertyDetailsPage } from './pages/RentPropertyDetailsPage';
+import { RootLayout } from './pages/RootLayout';
 
-const queryClient = new QueryClient();
+
+const router = createBrowserRouter([
+    { path: '/', element: <RootLayout/>, 
+    children: [
+      { index: true, element: <HomePage/>},
+      { path: 'forsale/', element: <ForSaleListPage/>},
+      { path: 'forrent/', element: <ForRentListPage/>},   
+      { path: 'forsale/:propertyId', element: <SalePropertyDetailsPage/>},
+      { path: 'forrent/:propertyId', element: <RentPropertyDetailsPage/>},
+    ]},
+  ]
+);
 
 const App: React.FC = () => {
-  const [showRentalList, setShowRentalList] = useState(false);
-  const [showSaleList, setShowSaleList] = useState(false);
-
-  const handleRentClick = () => {
-    setShowRentalList(true);
-    setShowSaleList(false);
-  };
-
-  const handleSaleClick = () => {
-    setShowSaleList(true);
-    setShowRentalList(false);
-  };
-
-  return (
+  return(
     <QueryClientProvider client={new QueryClient}>
-      <div className="app">
-        <HomePage onRentClick={handleRentClick} onSaleClick={handleSaleClick} />
-              {showRentalList && <ForRentList />}
-              {showSaleList && <ForSaleList />}
-      </div>
+      <RouterProvider router={router}/>
     </QueryClientProvider>
-  );
+  ); 
+   
 }
 
 export default App;

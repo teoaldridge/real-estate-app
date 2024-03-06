@@ -40,6 +40,7 @@ export const fetchForRentProperties = async (filters?: Filters):Promise<Property
           }
 
           let apiUrl = `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=10`;
+          //let apiUrl = 'forRentDummyData.json'
 
           if (filters) {
             Object.entries(filters).forEach(([key, value]) => {
@@ -58,7 +59,6 @@ export const fetchForRentProperties = async (filters?: Filters):Promise<Property
           
           const properties:Property[]  = response.data.hits;
           
-          console.log(properties);
           return properties; 
       } catch (error) {
           console.error('Error fetching properties:', error);

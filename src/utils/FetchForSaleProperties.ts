@@ -38,7 +38,7 @@ export const fetchForSaleProperties = async (filters?: Filters): Promise<Propert
           }
 
           let apiUrl = `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=10`
-          //let apiUrl = 'localhost:3000../../public/forSaleDummyData'
+          //let apiUrl = 'forSaleDummyData.json'
   
           if(filters) {
             Object.entries(filters).forEach(([key, value]) => {

@@ -1,10 +1,12 @@
-.brandName {
-    color: #711DB0;
-    font-size: 36px; /* Adjust size as needed */
-    font-weight:lighter;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 60px; 
+
+.logo-container {
+  display: block;
+  justify-content: left;
+  margin: 40px;
+}
+
+.logo {
+  width: 150px;
 }
 
 .sub-heading {
@@ -13,14 +15,12 @@
    color: #C21292;
 }
 
-/* Styles for the buttons */
 .buttons-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
   
-  .rent-button, .sale-button {
+  .button {
   background-color: #EF4040;
   border: none;
   color: white;
@@ -35,7 +35,7 @@
   transition-duration: 0.4s;
 }
   
-.rent-button:hover, .sale-button:hover {
+.button:hover {
   background-color: #FFA732;
   color: black;
  }
