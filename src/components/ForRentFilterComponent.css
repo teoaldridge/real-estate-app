@@ -1,6 +1,4 @@
-/* ForRentFilterComponent.css */
 
-/* Container styling */
 .for-rent-filter-container {
   padding: 20px;
   margin: 40px;
@@ -19,15 +17,13 @@
   padding: 5px;
 } 
   
-  /* Filter select styling */
 .for-rent-filter-container > div {
   margin-right: 20px; 
   margin-bottom: 20px; 
 }
 
-
 .for-rent-filter-container select {
-  width: calc(100% - 10px); /* Adjust width to account for padding */
+  width: calc(100% - 10px); 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -35,7 +31,6 @@
   background-color: #f9f9f9;
 }
 
-/* Button styling */
 .for-rent-filter-container button { 
   background-color:#C21292;
   color: white;
