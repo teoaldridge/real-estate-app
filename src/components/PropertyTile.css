@@ -39,11 +39,11 @@
 .property-icons {
   display: flex;
   margin: 5px;
-  align-items: center; /* Align items vertically centered */
+  align-items: center; 
 }
 
 .property-icons p {
-  margin: 5px; /* Adjust spacing between icons and text */
+  margin: 5px; 
 }
 
 .divider {

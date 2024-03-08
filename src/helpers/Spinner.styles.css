@@ -2,14 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Adjust as needed */
+    height: 100px; 
   }
   
   .spinner {
     width: 60px;
     height: 60px;
     border: 3px solid rgba(0, 0, 0, 0.1);
-    border-top: 3px solid  #FFA732; /* Change color as needed */
+    border-top: 3px solid  #FFA732; 
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
